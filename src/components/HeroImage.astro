@@ -1,0 +1,24 @@
+---
+export interface Props {
+	alt: string;
+    src: string;
+    subtractHeight?: string;
+}
+
+const { alt, src, subtractHeight = "0px" } = Astro.props;
+---
+
+<div>
+    <img src={ src } alt={ alt } >
+</div>
+
+<style lang="scss" define:vars={{ subtractHeight }}>
+    div {
+        img {
+            width: 100%;
+            height: calc(100vh - var(--subtractHeight));
+            object-fit: cover;
+            display: block;
+        }
+    }
+</style>

@@ -10,9 +10,13 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"astro": "^2.0.10"
+		"@astrojs/solid-js": "^2.0.2",
+		"@fontsource/cardo": "^4.5.9",
+		"astro": "^2.0.10",
+		"solid-js": "^1.6.10"
 	},
 	"devDependencies": {
+		"sass": "^1.58.0",
 		"typescript": "4.9.5"
 	}
 }
