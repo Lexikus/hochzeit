@@ -1,5 +1,7 @@
 ---
 import '@fontsource/cardo';
+import Footer from './Footer.astro';
+import Header from './Header.astro';
 ---
 
 <!DOCTYPE html>
@@ -13,39 +15,8 @@ import '@fontsource/cardo';
 		<link href="/styles/reset.css" rel="stylesheet">
 	</head>
 	<body>
-		<header>
-			<ul>
-				<li><a href="#location">Location</a></li>
-			</ul>
-		</header>
+		<Header></Header>
 		<slot />
-		<footer></footer>
+		<Footer></Footer>
 	</body>
 </html>
-
-<style lang="scss">
-	header {
-		background-color: orange;
-		text-align: center;
-		height: 64px;
-	}
-
-	ul {
-		padding: 0;
-		margin: 0;
-		display: flex;
-		align-items: center;
-  		justify-content: center;
-		height: 100%;
-
-		li {
-			list-style-type: none;
-		}
-	}
-</style>
-
-<style is:global>
-	body {
-		font-family: Cardo, Arial;
-	}
-</style>

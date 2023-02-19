@@ -1,0 +1,35 @@
+<div id="location" class="flex justify-center items-center gap-10">
+    <div>
+        <h2 class="text-3xl">Location</h2>
+        <p>Unsere Trauung findet im Grand National Luzern statt.</p>
+    </div>
+    <div>
+        <div class="h-96 w-96 flex-1" id="grand-national-map"></div>
+    </div>
+</div>
+
+<script>
+    import { Loader } from "@googlemaps/js-api-loader";
+    const loader = new Loader({
+        apiKey: "AIzaSyA70TNtUIEhOeqr71tDGXkeh1-frxL3tVI",
+        version: "weekly",
+        language: "de",
+        region: "CH",
+    });
+    loader.load().then(() => {
+        const coordinates = { lat: 47.05545306401165, lng: 8.315850299999997 };
+        const map = new (window as any).google.maps.Map(
+            document.getElementById("grand-national-map"),
+            {
+                center: coordinates,
+                zoom: 16,
+                mapId: "aeb0309c275c17ce",
+            }
+        );
+
+        new (window as any).google.maps.Marker({
+            position: coordinates,
+            map
+        });
+    });
+</script>
