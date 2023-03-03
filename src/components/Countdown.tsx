@@ -34,34 +34,34 @@ export default ({ date }: { date: string }) => {
 
     return (
         <div class="flex justify-center py-10">
-            <div style="font-family: marck script" class="grid grid-flow-col gap-5 text-center auto-cols-max">
+            <div style="font-family: marck script" class="grid grid-flow-col gap-3 text-center auto-cols-max">
                 <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
                     <Show
                         when={days() <= 99}
                         fallback={
-                            <span class="font-mono text-5xl">{days}</span>
+                            <span class="font-mono text-4xl">{days}</span>
                         }
                     >
-                        <span class="countdown font-mono text-5xl">
+                        <span class="countdown font-mono text-4xl">
                             <span style={{ "--value": days() }}></span>
                         </span>
                     </Show>
                     Tage
                 </div>
                 <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-                    <span class="countdown font-mono text-5xl">
+                    <span class="countdown font-mono text-4xl">
                         <span style={{ "--value": hours() }}></span>
                     </span>
                     Std
                 </div>
                 <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-                    <span class="countdown font-mono text-5xl">
+                    <span class="countdown font-mono text-4xl">
                         <span style={{ "--value": minutes() }}></span>
                     </span>
                     Min
                 </div>
                 <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-                    <span class="countdown font-mono text-5xl">
+                    <span class="countdown font-mono text-4xl">
                         <span style={{ "--value": seconds() }}></span>
                     </span>
                     Sek
