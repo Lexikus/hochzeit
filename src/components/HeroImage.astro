@@ -8,8 +8,12 @@ export interface Props {
 const { alt, src, subtractHeight = "0px" } = Astro.props;
 ---
 
-<div>
+<div class="relative">
     <img src={ src } alt={ alt } >
+    <div style="font-family: marck script" class="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center text-neutral">
+        <div class="text-5xl font-bold">Joelle & Alex</div>
+        <p class="pt-8 text-2xl">26.08.2023</p>
+    </div>
 </div>
 
 <style lang="scss" define:vars={{ subtractHeight }}>

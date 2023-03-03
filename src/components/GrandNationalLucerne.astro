@@ -1,10 +1,10 @@
-<div id="location" class="flex justify-center items-center gap-10">
-    <div>
-        <h2 class="text-3xl">Location</h2>
+<div id="location" class="block">
+    <div class="py-10 text-center">
+        <h2 class="text-3xl mb-4">Location</h2>
         <p>Unsere Trauung findet im Grand National Luzern statt.</p>
     </div>
-    <div>
-        <div class="h-96 w-96 flex-1" id="grand-national-map"></div>
+    <div class="pb-10">
+        <div class="h-96 w-full flex-1" id="grand-national-map"></div>
     </div>
 </div>
 
@@ -22,14 +22,14 @@
             document.getElementById("grand-national-map"),
             {
                 center: coordinates,
-                zoom: 16,
+                zoom: 14,
                 mapId: "aeb0309c275c17ce",
             }
         );
 
         new (window as any).google.maps.Marker({
             position: coordinates,
-            map
+            map,
         });
     });
 </script>

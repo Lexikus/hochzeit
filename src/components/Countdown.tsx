@@ -34,7 +34,7 @@ export default ({ date }: { date: string }) => {
 
     return (
         <div class="flex justify-center py-10">
-            <div class="grid grid-flow-col gap-5 text-center auto-cols-max">
+            <div style="font-family: marck script" class="grid grid-flow-col gap-5 text-center auto-cols-max">
                 <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
                     <Show
                         when={days() <= 99}
