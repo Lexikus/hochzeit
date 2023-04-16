@@ -33,7 +33,7 @@
     </div>
 </div><div class="flex justify-center">
     <div class="px-4 w-full">
-        <form id="form" method="post" enctype="text/plain" name="Anmeldung zur Hochzeit">
+        <form id="form" action="mailto:wedding@bifulco.dev" method="post" enctype="text/plain">
             <div class="form-control">
                 <label for="name" class="label">
                     <span class="label-text">Name</span>
@@ -74,29 +74,24 @@
     </div>
 </div>
 
+
 <script lang="js">
     const form = document.querySelector("form");
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", e => {
         e.preventDefault();
         const name = document.querySelector("#name")?.value ?? "Unbekannt";
-        const participation =
-            document.querySelector("#participation")?.checked ?? false;
+        const participation = document.querySelector("#participation")?.checked ?? false;
         const meatdish = document.querySelector("#meatdish")?.checked ?? false;
         const people = document.querySelector("#people")?.value ?? "1";
         const mail = "wedding@bifulco.dev";
-        const personMessage =
-            people === "1"
-                ? `Ich komme alleine.`
-                : `Ich komme mit ${people} Personen.`;
-        const meatdishMessage = meatdish
-            ? "Ich wünsche ein Fleischgericht."
-            : "Ich wünsche ein vegetarisches Gericht.";
+        const personMessage = people === "1" ? `Ich komme alleine.` : `Ich komme mit ${people} Personen.`
+        const meatdishMessage = meatdish ? "Ich wünsche ein Fleischgericht." : "Ich wünsche ein vegetarisches Gericht.";
         const message = participation
             ? `Ich, ${name}, nehme gerne an deiner Hochzeit teil. ${personMessage} ${meatdishMessage}`
             : `Ich, ${name}, kann leider nicht an deiner teilnehmen.`;
-        form.action = `mailto:${mail}@body=${message}`;
+        form.action = `mailto:${mail}?subject=Anmeldung zur Hochzeit&body=${message}`;
         form.submit();
-    });
+    })
 </script><div class="pb-4"></div>
 		<footer class="h-16 bg-current flex items-center justify-center">
     <span class="text-white">© Das Ehepaar</span>
