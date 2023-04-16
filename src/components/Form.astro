@@ -1,12 +1,9 @@
----
----
-
 <div class="flex justify-center">
     <div class="px-4 w-full">
         <form
-            action="mailto:wedding@bifulco.dev"
+            id="form"
             method="post"
-            enctype="multipart/form-data"
+            enctype="text/plain"
             name="Anmeldung zur Hochzeit"
         >
             <div class="form-control">
@@ -18,13 +15,14 @@
                     type="text"
                     placeholder="Name"
                     class="input input-bordered focus:input-primary"
+                    required
                 />
             </div>
             <div class="form-control">
                 <label class="label cursor-pointer">
                     <span class="label-text">Ich nehme teil</span>
                     <input
-                        name="teilnahme"
+                        id="participation"
                         type="checkbox"
                         class="toggle toggle-primary"
                         checked
@@ -37,7 +35,7 @@
                         >Ich wünsche ein Fleischgericht</span
                     >
                     <input
-                        name="fleischgericht"
+                        id="meatdish"
                         type="checkbox"
                         class="toggle toggle-primary"
                         checked
@@ -49,7 +47,7 @@
                     <span class="label-text">Anzahl Personen</span>
                     <div class="ml-6 flex-grow">
                         <input
-                            name="personen"
+                            id="people"
                             type="range"
                             min="1"
                             max="5"
@@ -73,3 +71,28 @@
         </form>
     </div>
 </div>
+
+<script lang="js">
+    const form = document.querySelector("form");
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const name = document.querySelector("#name")?.value ?? "Unbekannt";
+        const participation =
+            document.querySelector("#participation")?.checked ?? false;
+        const meatdish = document.querySelector("#meatdish")?.checked ?? false;
+        const people = document.querySelector("#people")?.value ?? "1";
+        const mail = "wedding@bifulco.dev";
+        const personMessage =
+            people === "1"
+                ? `Ich komme alleine.`
+                : `Ich komme mit ${people} Personen.`;
+        const meatdishMessage = meatdish
+            ? "Ich wünsche ein Fleischgericht."
+            : "Ich wünsche ein vegetarisches Gericht.";
+        const message = participation
+            ? `Ich, ${name}, nehme gerne an deiner Hochzeit teil. ${personMessage} ${meatdishMessage}`
+            : `Ich, ${name}, kann leider nicht an deiner teilnehmen.`;
+        form.action = `mailto:${mail}@body=${message}`;
+        form.submit();
+    });
+</script>
