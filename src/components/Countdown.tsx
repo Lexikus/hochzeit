@@ -5,7 +5,7 @@ const getHoursFromMilliseconds = (milliseconds: number) => Math.floor((milliseco
 const getMinutesFromMilliseconds = (milliseconds: number) => Math.floor((milliseconds % (1000 * 60 * 60)) / (1000 * 60));
 const getSecondsFromMilliseconds = (milliseconds: number) => Math.floor((milliseconds % (1000 * 60)) / 1000);
 
-function getMillisecondsFrom(startDate: Date): number  {
+function getMillisecondsFrom(startDate: Date): number {
     const now = new Date().getTime();
     const distance = startDate.getTime() - now;
     return distance;
@@ -35,7 +35,7 @@ export default ({ date }: { date: string }) => {
     return (
         <div class="flex justify-center py-10">
             <div style="font-family: marck script" class="grid grid-flow-col gap-3 text-center auto-cols-max">
-                <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+                <div class="flex flex-col p-2 bg-primary rounded-box text-primary-content">
                     <Show
                         when={days() <= 99}
                         fallback={
@@ -48,19 +48,19 @@ export default ({ date }: { date: string }) => {
                     </Show>
                     Tage
                 </div>
-                <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+                <div class="flex flex-col p-2 bg-primary rounded-box text-primary-content">
                     <span class="countdown font-mono text-4xl">
                         <span style={{ "--value": hours() }}></span>
                     </span>
                     Std
                 </div>
-                <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+                <div class="flex flex-col p-2 bg-primary rounded-box text-primary-content">
                     <span class="countdown font-mono text-4xl">
                         <span style={{ "--value": minutes() }}></span>
                     </span>
                     Min
                 </div>
-                <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+                <div class="flex flex-col p-2 bg-primary rounded-box text-primary-content">
                     <span class="countdown font-mono text-4xl">
                         <span style={{ "--value": seconds() }}></span>
                     </span>

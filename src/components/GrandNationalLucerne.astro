@@ -17,7 +17,7 @@
         region: "CH",
     });
     loader.load().then(() => {
-        const coordinates = { lat: 47.05545306401165, lng: 8.315850299999997 };
+        const coordinates = { lat: 47.0554823018069, lng: 8.315764469314892 };
         const map = new (window as any).google.maps.Map(
             document.getElementById("grand-national-map"),
             {
@@ -29,6 +29,7 @@
 
         new (window as any).google.maps.Marker({
             position: coordinates,
+            title: "Grand National Lucerne",
             map,
         });
     });

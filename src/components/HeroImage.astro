@@ -1,6 +1,6 @@
 ---
 export interface Props {
-	alt: string;
+    alt: string;
     src: string;
     subtractHeight?: string;
 }
@@ -9,10 +9,13 @@ const { alt, src, subtractHeight = "0px" } = Astro.props;
 ---
 
 <div class="relative">
-    <img src={ src } alt={ alt } >
-    <div style="font-family: marck script" class="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center text-neutral">
+    <img src={src} alt={alt} />
+    <div
+        style="font-family: marck script"
+        class="absolute top-0 left-0 w-full h-full flex flex-col items-center text-primary mt-5"
+    >
         <div class="text-5xl font-bold">Joelle & Alex</div>
-        <p class="pt-8 text-2xl">26.08.2023</p>
+        <p class="pt-2 text-primary text-2xl">26.08.2023</p>
     </div>
 </div>
 
@@ -22,6 +25,7 @@ const { alt, src, subtractHeight = "0px" } = Astro.props;
             width: 100%;
             height: calc(100vh - var(--subtractHeight));
             object-fit: cover;
+            object-position: center center;
             display: block;
         }
     }

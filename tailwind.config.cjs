@@ -6,6 +6,20 @@ module.exports = {
 	},
 	plugins: [require('daisyui')],
 	daisyui: {
-		themes: ['pastel']
+		themes: [
+			{
+				mytheme: {
+					"primary": "#D47E49",
+					"secondary": "#BA2A41",
+					"accent": "#D5A574",
+					"neutral": "#1c1917",
+					"base-100": "#FFFFFF",
+					"info": "#a5f3fc",
+					"success": "#047857",
+					"warning": "#EFD7BB",
+					"error": "#E58B8B",
+				},
+			},
+		],
 	}
 }

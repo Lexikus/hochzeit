@@ -1,12 +1,15 @@
 ---
-import Countdown from '../components/Countdown';
-import GrandNationalLucerne  from '../components/GrandNationalLucerne.astro';
-import HeroImage from '../components/HeroImage.astro';
+import Countdown from "../components/Countdown";
+import Form from "../components/Form.astro";
+import GrandNationalLucerne from "../components/GrandNationalLucerne.astro";
+import HeroImage from "../components/HeroImage.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-	<HeroImage subtractHeight="232px" alt="test" src="/temp1.jpg"></HeroImage>
-	<Countdown client:only date={ "2023-08-26 14:00" }></Countdown>
-	<GrandNationalLucerne></GrandNationalLucerne>
+	<HeroImage subtractHeight="232px" alt="test" src="/_R_R4056.jpg" />
+	<Countdown client:only date={"2023-08-26 14:00"} />
+	<GrandNationalLucerne />
+	<Form />
+	<div class="pb-4"></div>
 </Layout>
