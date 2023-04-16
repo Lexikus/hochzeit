@@ -34,35 +34,38 @@
     </div>
 </div><div class="py-10 text-center">
     <h2 id="anmeldung" class="text-3xl">Anmeldung</h2>
-<div class="flex justify-center">
-    <div id="thankyou-container" class="hidden text-center">
-        <p>Vielen Dank für deine Anmeldung.<br>Falls sich dein E-Mail-Client nicht automatisch geöffnet hat, kannst du uns gerne per WhatsApp oder SMS kontaktieren.</p>
-    </div>
-    <div id="submit-container" class="px-4 w-full">
-        <form id="form" action="mailto:wedding@bifulco.dev" method="post" enctype="multipart/form-data">
+    <div class="flex justify-center">
+        <div id="thankyou-container" class="hidden text-center">
+            <p>
+                Vielen Dank für deine Anmeldung.<br>Falls sich dein
+                E-Mail-Client nicht automatisch geöffnet hat, kannst du uns
+                gerne per WhatsApp oder SMS kontaktieren.
+            </p>
+        </div>
+        <div id="submit-container" class="px-4 w-full">
             <div class="form-control">
                 <label for="name" class="label">
                     <span class="label-text">Name</span>
                 </label>
-                <input id="name" type="text" placeholder="Name" class="input input-bordered focus:input-primary" required>
+                <input id="name" type="text" placeholder="Name" class="fe input input-bordered focus:input-primary">
             </div>
             <div class="form-control">
                 <label class="label cursor-pointer">
                     <span class="label-text text-left">Ich nehme teil</span>
-                    <input id="participation" type="checkbox" class="toggle toggle-primary" checked>
+                    <input id="participation" type="checkbox" class="fe toggle toggle-primary" checked>
                 </label>
             </div>
             <div class="form-control">
                 <label class="label cursor-pointer">
                     <span class="label-text text-left">Ich wünsche ein Fleischgericht</span>
-                    <input id="meatdish" type="checkbox" class="toggle toggle-primary" checked>
+                    <input id="meatdish" type="checkbox" class="fe toggle toggle-primary" checked>
                 </label>
             </div>
             <div class="form-control">
                 <label class="label">
                     <span class="label-text text-left">Anzahl Personen</span>
                     <div class="ml-6 flex-grow">
-                        <input id="people" type="range" min="1" max="8" value="2" class="range range-primary" step="1">
+                        <input id="people" type="range" min="1" max="8" value="2" class="fe range range-primary" step="1">
                         <div class="w-full flex justify-between text-xs px-2">
                             <span>1</span>
                             <span>2</span>
@@ -77,34 +80,50 @@
                 </label>
             </div>
             <div class="form-control mt-6">
-                <button class="btn btn-primary">Anmelden</button>
+                <a id="submit" href="" class="btn btn-primary">Anmelden</a>
             </div>
-        </form>
+        </div>
     </div>
-</div>
 </div>
 
 <script lang="js">
-    const form = document.querySelector("form");
-    form.addEventListener("submit", e => {
-        e.preventDefault();
+    const formElement = document.querySelector(".fe");
+    const submitLink = document.querySelector("#submit");
+    formElement.addEventListener("change", (e) => {
         const name = document.querySelector("#name")?.value ?? "Unbekannt";
-        const participation = document.querySelector("#participation")?.checked ?? false;
+        const participation =
+            document.querySelector("#participation")?.checked ?? false;
         const meatdish = document.querySelector("#meatdish")?.checked ?? false;
         const people = document.querySelector("#people")?.value ?? "1";
         const mail = "wedding@bifulco.dev";
-        const personMessage = people === "1" ? `Ich werde alleine erscheinen und` : `Ich werde mit ${people} Personen erscheinen und`
-        const meatdishMessage = meatdish ? "würde gerne ein Fleischgericht bestellen." : "würde gerne ein vegetarisches Gericht bestellen.";
+        const personMessage =
+            people === "1"
+                ? `Ich werde alleine erscheinen und`
+                : `Ich werde mit ${people} Personen erscheinen und`;
+        const meatdishMessage = meatdish
+            ? "würde gerne ein Fleischgericht bestellen."
+            : "würde gerne ein vegetarisches Gericht bestellen.";
         const subject = encodeURIComponent("Anmeldung zur Hochzeit");
         let message = participation
             ? `Ich, ${name}, freue mich, an Eurer Hochzeit teilzunehmen. ${personMessage} ${meatdishMessage}`
             : `Ich, ${name}, kann leider nicht an eurer teilnehmen.`;
         message = encodeURIComponent(message);
-        form.action = `mailto:${mail}?subject=${subject}&body=${message}`;
-        form.submit();
-        document.querySelector("#thankyou-container").classList.remove("hidden");
+
+        if (!name) return;
+
+        submitLink.href = `mailto:${mail}?subject=${subject}&body=${message}`;
+    });
+    submitLink.addEventListener("click", (e) => {
+        if (!submitLink.href.includes("mailto")) {
+            e.preventDefault();
+            return;
+        }
+
+        document
+            .querySelector("#thankyou-container")
+            .classList.remove("hidden");
         document.querySelector("#submit-container").classList.add("hidden");
-    })
+    });
 </script>
 		<footer class="h-16 bg-current flex items-center justify-center">
     <span class="text-white">© Das Ehepaar</span>
