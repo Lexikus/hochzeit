@@ -1,9 +1,14 @@
+<div class="py-10 text-center">
+    <h2 id="anmeldung" class="text-3xl">Anmeldung</h2>
 <div class="flex justify-center">
-    <div class="px-4 w-full">
+    <div id="thankyou-container" class="hidden text-center">
+        <p>Vielen Dank für deine Anmeldung.<br />Falls sich dein E-Mail-Client nicht automatisch geöffnet hat, kannst du uns gerne per WhatsApp oder SMS kontaktieren.</p>
+    </div>
+    <div id="submit-container" class="px-4 w-full">
         <form id="form"
             action="mailto:wedding@bifulco.dev"
             method="post"
-            enctype="text/plain"
+            enctype="multipart/form-data"
         >
             <div class="form-control">
                 <label for="name" class="label">
@@ -19,7 +24,7 @@
             </div>
             <div class="form-control">
                 <label class="label cursor-pointer">
-                    <span class="label-text">Ich nehme teil</span>
+                    <span class="label-text text-left">Ich nehme teil</span>
                     <input
                         id="participation"
                         type="checkbox"
@@ -30,7 +35,7 @@
             </div>
             <div class="form-control">
                 <label class="label cursor-pointer">
-                    <span class="label-text"
+                    <span class="label-text text-left"
                         >Ich wünsche ein Fleischgericht</span
                     >
                     <input
@@ -43,13 +48,13 @@
             </div>
             <div class="form-control">
                 <label class="label">
-                    <span class="label-text">Anzahl Personen</span>
+                    <span class="label-text text-left">Anzahl Personen</span>
                     <div class="ml-6 flex-grow">
                         <input
                             id="people"
                             type="range"
                             min="1"
-                            max="5"
+                            max="8"
                             value="2"
                             class="range range-primary"
                             step="1"
@@ -60,6 +65,9 @@
                             <span>3</span>
                             <span>4</span>
                             <span>5</span>
+                            <span>6</span>
+                            <span>7</span>
+                            <span>8</span>
                         </div>
                     </div>
                 </label>
@@ -70,7 +78,7 @@
         </form>
     </div>
 </div>
-
+</div>
 
 <script lang="js">
     const form = document.querySelector("form");
@@ -81,12 +89,16 @@
         const meatdish = document.querySelector("#meatdish")?.checked ?? false;
         const people = document.querySelector("#people")?.value ?? "1";
         const mail = "wedding@bifulco.dev";
-        const personMessage = people === "1" ? `Ich komme alleine.` : `Ich komme mit ${people} Personen.`
-        const meatdishMessage = meatdish ? "Ich wünsche ein Fleischgericht." : "Ich wünsche ein vegetarisches Gericht.";
-        const message = participation
-            ? `Ich, ${name}, nehme gerne an deiner Hochzeit teil. ${personMessage} ${meatdishMessage}`
-            : `Ich, ${name}, kann leider nicht an deiner teilnehmen.`;
-        form.action = `mailto:${mail}?subject=Anmeldung zur Hochzeit&body=${message}`;
+        const personMessage = people === "1" ? `Ich werde alleine erscheinen und` : `Ich werde mit ${people} Personen erscheinen und`
+        const meatdishMessage = meatdish ? "würde gerne ein Fleischgericht bestellen." : "würde gerne ein vegetarisches Gericht bestellen.";
+        const subject = encodeURIComponent("Anmeldung zur Hochzeit");
+        let message = participation
+            ? `Ich, ${name}, freue mich, an Eurer Hochzeit teilzunehmen. ${personMessage} ${meatdishMessage}`
+            : `Ich, ${name}, kann leider nicht an eurer teilnehmen.`;
+        message = encodeURIComponent(message);
+        form.action = `mailto:${mail}?subject=${subject}&body=${message}`;
         form.submit();
+        document.querySelector("#thankyou-container").classList.remove("hidden");
+        document.querySelector("#submit-container").classList.add("hidden");
     })
 </script>

@@ -6,13 +6,14 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 		<meta name="generator" content="Astro v2.0.14">
 		<title>Joelle ❤️ Alexander</title>
-	<link rel="stylesheet" href="/astro_/index.0bf3f113.css" /><script type="module" src="/astro_/hoisted.a6a61abc.js"></script></head>
+	<link rel="stylesheet" href="/astro_/index.49d7932b.css" /><script type="module" src="/astro_/hoisted.a6a61abc.js"></script></head>
 	<body>
 		<div class="navbar bg-base-100">
     <div class="navbar-start"></div>
     <div class="navbar-center">
         <ul class="menu menu-horizontal px-1">
             <li><a href="#location">Location</a></li>
+            <li><a href="#anmeldung">Anmeldung</a></li>
         </ul>
     </div>
     <div class="navbar-end"></div>
@@ -31,7 +32,80 @@
     <div class="pb-10">
         <div class="h-96 w-full flex-1" id="grand-national-map"></div>
     </div>
-</div><div class="pb-4"></div>
+</div><div class="py-10 text-center">
+    <h2 id="anmeldung" class="text-3xl">Anmeldung</h2>
+<div class="flex justify-center">
+    <div id="thankyou-container" class="hidden text-center">
+        <p>Vielen Dank für deine Anmeldung.<br>Falls sich dein E-Mail-Client nicht automatisch geöffnet hat, kannst du uns gerne per WhatsApp oder SMS kontaktieren.</p>
+    </div>
+    <div id="submit-container" class="px-4 w-full">
+        <form id="form" action="mailto:wedding@bifulco.dev" method="post" enctype="multipart/form-data">
+            <div class="form-control">
+                <label for="name" class="label">
+                    <span class="label-text">Name</span>
+                </label>
+                <input id="name" type="text" placeholder="Name" class="input input-bordered focus:input-primary" required>
+            </div>
+            <div class="form-control">
+                <label class="label cursor-pointer">
+                    <span class="label-text text-left">Ich nehme teil</span>
+                    <input id="participation" type="checkbox" class="toggle toggle-primary" checked>
+                </label>
+            </div>
+            <div class="form-control">
+                <label class="label cursor-pointer">
+                    <span class="label-text text-left">Ich wünsche ein Fleischgericht</span>
+                    <input id="meatdish" type="checkbox" class="toggle toggle-primary" checked>
+                </label>
+            </div>
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text text-left">Anzahl Personen</span>
+                    <div class="ml-6 flex-grow">
+                        <input id="people" type="range" min="1" max="8" value="2" class="range range-primary" step="1">
+                        <div class="w-full flex justify-between text-xs px-2">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                            <span>4</span>
+                            <span>5</span>
+                            <span>6</span>
+                            <span>7</span>
+                            <span>8</span>
+                        </div>
+                    </div>
+                </label>
+            </div>
+            <div class="form-control mt-6">
+                <button class="btn btn-primary">Anmelden</button>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+
+<script lang="js">
+    const form = document.querySelector("form");
+    form.addEventListener("submit", e => {
+        e.preventDefault();
+        const name = document.querySelector("#name")?.value ?? "Unbekannt";
+        const participation = document.querySelector("#participation")?.checked ?? false;
+        const meatdish = document.querySelector("#meatdish")?.checked ?? false;
+        const people = document.querySelector("#people")?.value ?? "1";
+        const mail = "wedding@bifulco.dev";
+        const personMessage = people === "1" ? `Ich werde alleine erscheinen und` : `Ich werde mit ${people} Personen erscheinen und`
+        const meatdishMessage = meatdish ? "würde gerne ein Fleischgericht bestellen." : "würde gerne ein vegetarisches Gericht bestellen.";
+        const subject = encodeURIComponent("Anmeldung zur Hochzeit");
+        let message = participation
+            ? `Ich, ${name}, freue mich, an Eurer Hochzeit teilzunehmen. ${personMessage} ${meatdishMessage}`
+            : `Ich, ${name}, kann leider nicht an eurer teilnehmen.`;
+        message = encodeURIComponent(message);
+        form.action = `mailto:${mail}?subject=${subject}&body=${message}`;
+        form.submit();
+        document.querySelector("#thankyou-container").classList.remove("hidden");
+        document.querySelector("#submit-container").classList.add("hidden");
+    })
+</script>
 		<footer class="h-16 bg-current flex items-center justify-center">
     <span class="text-white">© Das Ehepaar</span>
 </footer>
