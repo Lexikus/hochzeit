@@ -1,11 +1,46 @@
+---
+import Burger from '../components/icons/Burger.astro';
+---
+
 <div class="navbar bg-base-100">
     <div class="navbar-start"></div>
-    <div class="navbar-center">
-        <ul class="menu menu-horizontal px-1">
+    <div class="navbar-center flex">
+        <ul id="nav-list" class="menu menu-horizontal px-1">
             <li><a href="/#location">Location</a></li>
             <li><a href="/#anmeldung">Anmeldung</a></li>
             <li><a href="/blog">Blog</a></li>
+            <li><a href="https://littlewish.de/q/joelleundalex" target="_blank">Wunschliste</a></li>
         </ul>
     </div>
-    <div class="navbar-end"></div>
+    <div class="navbar-end self-baseline">
+        <i id="burger" class="mt-2 w-5 h-5 cursor-pointer sm:hidden"><Burger /></i>
+    </div>
 </div>
+
+<script>
+    const burger = document.getElementById("burger");
+    const navList = document.getElementById("nav-list");
+    let navVisible = false;
+    burger?.addEventListener("click", (_) => {
+        if (navVisible) {
+            navList?.classList.remove('visible');
+        } else {
+            navList?.classList.add('visible');
+        }
+        navVisible = !navVisible;
+    });
+</script>
+
+<style>
+    #nav-list {
+        display: inline-flex;
+    }
+    @media (max-width: 640px) {
+        #nav-list {
+            display: none;
+        }
+        #nav-list.visible {
+            display: block;
+        }
+    }
+</style>
