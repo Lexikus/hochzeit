@@ -1,4 +1,5 @@
 ---
+import ArticleText from "../components/ArticleText.astro";
 import Countdown from "../components/Countdown";
 import Form from "../components/Form.astro";
 import GrandNationalLucerne from "../components/GrandNationalLucerne.astro";
@@ -11,4 +12,10 @@ import Layout from "../layouts/Layout.astro";
 	<Countdown client:only date={"2023-08-26 14:00"} />
 	<GrandNationalLucerne />
 	<Form />
+	<ArticleText title="Wichtig">
+        <p>
+            Liebe Gäste,<br>
+			für eines unserer besonderen Momente während der Hochzeit möchten wir gerne ein Foto von euch haben bis ende Juni. Könntet ihr uns bitte eines eurer Lieblingsfotos zukommen lassen? Am besten schickt ihr es uns per WhatsApp.
+        </p>
+    </ArticleText>
 </Layout>
