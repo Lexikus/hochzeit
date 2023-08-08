@@ -6,7 +6,7 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 		<meta name="generator" content="Astro v2.0.14">
 		<title>Joelle ❤️ Alexander</title>
-	<link rel="stylesheet" href="/astro_/index.56ed634a.css" />
+	<link rel="stylesheet" href="/astro_/index.5e741cd0.css" />
 <link rel="stylesheet" href="/astro_/index.8dc19e18.css" /><script type="module" src="/astro_/hoisted.f10b29a5.js"></script></head>
 	<body>
 		<div class="navbar bg-base-100 astro-XBSTL6G3">
@@ -14,7 +14,7 @@
     <div class="navbar-center flex astro-XBSTL6G3">
         <ul id="nav-list" class="menu menu-horizontal px-1 astro-XBSTL6G3">
             <li class="astro-XBSTL6G3"><a href="/#location" class="astro-XBSTL6G3">Location</a></li>
-            <li class="astro-XBSTL6G3"><a href="/#anmeldung" class="astro-XBSTL6G3">Anmeldung</a></li>
+            <li class="astro-XBSTL6G3"><a href="/ablauf" class="astro-XBSTL6G3">Ablauf</a></li>
             <li class="astro-XBSTL6G3"><a href="/blog" class="astro-XBSTL6G3">Blog</a></li>
             <li class="astro-XBSTL6G3"><a href="/faq" class="astro-XBSTL6G3">FAQ</a></li>
             <li class="astro-XBSTL6G3"><a href="https://littlewish.de/q/joelleundalex" target="_blank" class="astro-XBSTL6G3">Wunschliste</a></li>
@@ -39,104 +39,6 @@
     <div>
         <div class="h-96 w-full flex-1" id="grand-national-map"></div>
     </div>
-</div><div class="py-10 text-center">
-    <h2 style="font-family: marck script" id="anmeldung" class="text-4xl">Anmeldung</h2>
-    <div class="flex justify-center">
-        <div id="thankyou-container" class="hidden text-center">
-            <p>
-                Vielen Dank für deine Anmeldung.<br>Falls sich dein
-                E-Mail-Client nicht automatisch geöffnet hat, kannst du uns
-                gerne per WhatsApp oder SMS kontaktieren.
-            </p>
-        </div>
-        <div id="submit-container" class="px-4 w-full">
-            <div class="form-control">
-                <label for="name" class="label">
-                    <span class="label-text">Name</span>
-                </label>
-                <input id="name" type="text" placeholder="Name" class="fe input input-bordered focus:input-primary">
-            </div>
-            <div class="form-control">
-                <label class="label cursor-pointer">
-                    <span class="label-text text-left">Ich nehme teil</span>
-                    <input id="participation" type="checkbox" class="fe toggle toggle-primary" checked>
-                </label>
-            </div>
-            <div class="form-control">
-                <label class="label cursor-pointer">
-                    <span class="label-text text-left">Ich wünsche ein Fleischgericht</span>
-                    <input id="meatdish" type="checkbox" class="fe toggle toggle-primary" checked>
-                </label>
-            </div>
-            <div class="form-control">
-                <label class="label">
-                    <span class="label-text text-left">Anzahl Personen</span>
-                    <div class="ml-6 flex-grow">
-                        <input id="people" type="range" min="1" max="8" value="2" class="fe range range-primary" step="1">
-                        <div class="w-full flex justify-between text-xs px-2">
-                            <span>1</span>
-                            <span>2</span>
-                            <span>3</span>
-                            <span>4</span>
-                            <span>5</span>
-                            <span>6</span>
-                            <span>7</span>
-                            <span>8</span>
-                        </div>
-                    </div>
-                </label>
-            </div>
-            <div class="form-control mt-6">
-                <a id="submit" href="" class="btn btn-primary">Anmelden</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script lang="js">
-    const formElement = document.querySelector(".fe");
-    const submitLink = document.querySelector("#submit");
-    formElement.addEventListener("change", (e) => {
-        const name = document.querySelector("#name")?.value ?? "Unbekannt";
-        const participation =
-            document.querySelector("#participation")?.checked ?? false;
-        const meatdish = document.querySelector("#meatdish")?.checked ?? false;
-        const people = document.querySelector("#people")?.value ?? "1";
-        const mail = "wedding@bifulco.dev";
-        const personMessage =
-            people === "1"
-                ? `Ich werde alleine erscheinen und`
-                : `Ich werde mit ${people} Personen erscheinen und`;
-        const meatdishMessage = meatdish
-            ? "würde gerne ein Fleischgericht bestellen."
-            : "würde gerne ein vegetarisches Gericht bestellen.";
-        const subject = encodeURIComponent("Anmeldung zur Hochzeit");
-        let message = participation
-            ? `Ich, ${name}, freue mich, an Eurer Hochzeit teilzunehmen. ${personMessage} ${meatdishMessage}`
-            : `Ich, ${name}, kann leider nicht an eurer teilnehmen.`;
-        message = encodeURIComponent(message);
-
-        if (!name) return;
-
-        submitLink.href = `mailto:${mail}?subject=${subject}&body=${message}`;
-    });
-    submitLink.addEventListener("click", (e) => {
-        if (!submitLink.href.includes("mailto")) {
-            e.preventDefault();
-            return;
-        }
-
-        document
-            .querySelector("#thankyou-container")
-            .classList.remove("hidden");
-        document.querySelector("#submit-container").classList.add("hidden");
-    });
-</script><div class="px-4 py-10 text-center">
-    <h2 class="text-4xl mb-4" style="font-family: marck script">Wichtig</h2>
-    <p>
-            Liebe Gäste,<br>
-			für eines unserer besonderen Momente während der Hochzeit möchten wir gerne ein Foto von euch haben bis ende Juni. Könntet ihr uns bitte eines eurer Lieblingsfotos zukommen lassen? Am besten schickt ihr es uns per WhatsApp.
-        </p>
 </div>
 		<footer class="h-16 bg-current flex items-center justify-center">
     <span class="text-white">© Das Ehepaar</span>

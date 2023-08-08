@@ -1,13 +1,14 @@
 ---
 export interface Props {
     title: string;
+    checked?: boolean;
 }
 
-const { title } = Astro.props;
+const { title, checked = false } = Astro.props;
 ---
 
 <div class="collapse collapse-arrow pt-10 last-of-type:pb-10">
-  <input type="radio" name="my-accordion-2" />
+  <input type="radio" name="my-accordion-2" checked={checked} />
   <div class="collapse-title">
     <h2 class="text-4xl text-center" style="font-family: marck script">
         {title}

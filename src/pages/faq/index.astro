@@ -4,43 +4,54 @@ import Accordion from '../../components/Accordion.astro';
 ---
 
 <Layout>
-    <Accordion title="Kleiderordnung">
-        <p>
-            Liebe Freunde und Familie,<br />
-            wir freuen uns sehr, euch zu unserer bevorstehenden Hochzeit einzuladen. Es wird ein besonderer Tag sein, an dem wir unsere Liebe und unser Glück miteinander teilen möchten. Um diese Gelegenheit angemessen zu feiern, würden wir uns über eure Unterstützung freuen, indem ihr Anzüge tragt.
-            Unsere Hochzeit wird ein elegantes und stilvolles Ereignis sein, und wir glauben, dass Anzüge dazu beitragen werden, eine festliche Atmosphäre zu schaffen. Wir wissen, dass ihr alle wunderbare Kleidung habt, die euren persönlichen Stil unterstreicht, und wir sind zuversichtlich, dass ihr in einem Anzug absolut fantastisch aussehen werdet.
-        </p>
-    </Accordion>
+    <div class="mt-[-18px]">
+        <Accordion title="Kleiderordnung" checked={true}>
+            <p>Liebe Freunde und Familie,</p>
 
-    <Accordion title="Menü">
-        <h3 class="text-xl">Apero</h3>
-        <div class="m-4">
-            <p>*** Chips & Nüsse ***</p>
-            <p>*** Oliven ***</p>
-            <p>*** Medjoul-Datteln gefüllt mit Mandeln ***</p>
-            <p>*** Ziegenkäse im Speckmantel ***</p>
-            <p>*** Klassische Kartoffeltortilla ***</p>
-            <p>*** Krevetten al Ajillo ***</p>
-        </div>
+            <p>wir freuen uns ausserordentlich, euch zu unserer kommenden Hochzeit einzuladen. Dieser Tag wird für uns von besonderer Bedeutung sein, an dem wir unsere Liebe und unser Glück miteinander teilen möchten. Um diesen Anlass gebührend zu zelebrieren, würden wir uns über eure Unterstützung freuen, indem ihr elegante Anzüge und stilvolle Kleider tragt.</p>
 
-        <h3 class="text-xl">Vorspeise</h3>
-        <div class="m-4">
-            <p>*** Grillierter Hummer ***</p>
-        </div>
-        <h3 class="text-xl">Hauptgang</h3>
-        <div class="m-4">
-            <p>*** Schweizer Rinds Entrecôte ***</p>
-        </div>
+            <p>Unsere Hochzeit wird von einer eleganten und stilvollen Atmosphäre geprägt sein, und wir sind davon überzeugt, dass Anzüge und schicke Kleider dazu beitragen werden, diese festliche Stimmung zu unterstreichen. Wir wissen, dass ihr alle über eine fantastische Garderobe verfügt, die euren individuellen Stil betont, und wir sind zuversichtlich, dass ihr in Anzügen und Kleidern einfach grossartig aussehen werdet.</p>
 
-        <h3 class="text-xl">Dessert</h3>
-        <div class="m-4">
-            <p>*** Buffet + Hochzeitstorte ***</p>
-        </div>
+            <p>In Bezug auf die Kleiderwahl möchten wir euch bitten, auf Weiss oder Rot zu verzichten.</p>
+        </Accordion>
 
-        <p>* Die Auflistung der vegetarischen Menüs wird noch nachgeführt.</p>
-    </Accordion>
+        <Accordion title="Menü">
+            <h3 class="text-2xl">Apero</h3>
+            <div class="m-4">
+                <p>*** Chips & Nüsse ***</p>
+                <p>*** Oliven ***</p>
+                <p>*** Medjoul-Datteln gefüllt mit Mandeln ***</p>
+                <p>*** Ziegenkäse im Speckmantel ***</p>
+                <p>*** Klassische Kartoffeltortilla ***</p>
+                <p>*** Krevetten al Ajillo ***</p>
+            </div>
 
-    <Accordion title="Tagesablauf">
-        Die Zeremonie wird um 14:00 Uhr in vollem Glanz erstrahlen! Anschliessend werden wir uns entweder draussen bei strahlendem Sonnenschein oder bei schlechtem Wetter in einer gemütlichen Indoor-Location zum Aperitif versammeln. Um 17:00 Uhr ist es dann Zeit, unsere Geschmacksknospen mit einem gemeinsamen Festmahl zu verwöhnen. Doch das ist noch nicht alles! Zwischendurch erwarten euch immer wieder aufregende kleine Events, die für Begeisterung sorgen werden. Und schliesslich heisst es: Alle zusammen feiern! Doch das ist noch nicht das Ende – am nächsten Morgen erwartet die Übernachtungsgäste ein leckeres Frühstück, um den Tag gebührend zu beginnen.
-    </Accordion>
+            <h3 class="text-2xl">Fleischmenü</h3>
+            <h4 class="text-lg mt-4">Vorspeise</h3>
+            <div class="m-4">
+                <p>*** Grillierter Hummer ***</p>
+            </div>
+            <h3 class="text-lg">Hauptgang</h3>
+            <div class="m-4">
+                <p>*** Schweizer Rinds Entrecôte ***</p>
+            </div>
+
+            <h3 class="text-2xl">Vegi/Vegan-Menü</h3>
+            <h4 class="text-lg mt-4">Vorspeise</h3>
+            <div class="m-4">
+                <p>*** Caprese mit Mozzarella und verschiedenfarbigen Tomaten ***</p>
+            </div>
+            <h3 class="text-lg">Hauptgang</h3>
+            <div class="m-4">
+                <p>*** Risotto mit Marktgemüse ***</p>
+            </div>
+
+            <h3 class="text-2xl">Dessert</h3>
+            <div class="m-4">
+                <p>*** Buffet + Hochzeitstorte ***</p>
+            </div>
+
+            <p>* Die Auflistung der vegetarischen Menüs wird noch nachgeführt.</p>
+        </Accordion>
+    </div>
 </Layout>
